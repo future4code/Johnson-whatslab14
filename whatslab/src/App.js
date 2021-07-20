@@ -17,15 +17,15 @@ export default class App extends React.Component {
     const ChatBox = styled.div`
       display: flex;
       flex-direction: column;
-      width: 900px;
+      width: 50%;
       height: 95%;
       border: solid;
       background-color: white;
-      margin: 15px 0 15px 0;
     `
 
 
     return (
+
       <Wrapper>
 
         <ChatBox>
