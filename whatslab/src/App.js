@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import styled from 'styled-components'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends React.Component {
+
+  render() {
+
+    const Wrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aliceblue;
+    height: 100vh;
+   `
+
+
+    const ChatBox = styled.div`
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      height: 95%;
+      border: solid;
+      background-color: white;
+    `
+
+
+    return (
+
+      <Wrapper>
+
+        <ChatBox>
+
+        </ChatBox>
+
+      </Wrapper>
+
+    )
+  }
 }
-
-export default App;
