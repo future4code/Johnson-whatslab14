@@ -10,9 +10,16 @@ const InputBox = styled.div`
     margin-top:auto;
     padding:5px ;
     border-radius: 10px;
+    width: 100%;
+    align-items: center;
+    justify-content: start;
 `
-
-
+const Botao = styled.button`
+width: 25%;
+`
+const InputMsg = styled.input`
+width: 35%;
+`
 class Mensagem extends React.Component {
 
     state = {
@@ -46,9 +53,9 @@ class Mensagem extends React.Component {
         render() {
             return (
                 <InputBox>
-                    <input placeholder='Usuário' value={this.state.inputUsuario} onChange={this.onChangeUsuario} />
-                    <input placeholder='Escreva sua Mensagem' value={this.state.inputMensagem} onChange={this.onChangeMensagem }/>
-                    <button onClick={this.enviaMensagem}>Enviar</button>
+                    <InputMsg placeholder='Usuário' value={this.state.inputUsuario} onChange={this.onChangeUsuario} />
+                    <InputMsg placeholder='Escreva sua Mensagem' value={this.state.inputMensagem} onChange={this.onChangeMensagem }/>
+                    <Botao onClick={this.enviaMensagem}>Enviar</Botao>
                 </InputBox>
             )
         }
