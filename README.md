@@ -1,9 +1,6 @@
 # Johnson-whatslab14
 
-Integrantes do grupo:
-\n
--Rubens Cerqueira Vieira santos
--Ivanilo Alves da Silva Junior
+Integrantes do grupo:Rubens Cerqueira Vieira santos e Ivanilo Alves da Silva Junior
 
 
 Link do Surge: impartial-trees.surge.sh
