@@ -23,11 +23,15 @@ const ContainerNome = styled.div`
  margin-bottom: 0.2em;
 `
 
+const ApagaMensagem = styled.button`
+`
+
 class BalaoMensagem extends React.Component{
 
     render(){
         return(
-            <Balao><ContainerNome>{this.props.usuario}</ContainerNome>{this.props.mensagem}</Balao>
+            <Balao onClick={this.apagarMensagem}><ContainerNome>{this.props.usuario}</ContainerNome>{this.props.mensagem} </Balao>
+
         )
     }
     
