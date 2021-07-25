@@ -30,6 +30,10 @@ const DisplayMensagens = styled.div`
   color: black;
   height: 95%;
   padding: 10px;
+  overflow: scroll;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `
 
 export default class App extends React.Component {
@@ -39,16 +43,22 @@ export default class App extends React.Component {
 
   listaMensagem = () =>
     this.state.mensagens.map((mensagem, index) => {
-      if (mensagem.usuario.toLowerCase() === "eu") {
-        return (<BalaoMensagemUsuario key={index} mensagem={mensagem.mensagem} />)
+      if (mensagem.usuario === "eu") {
+        return (<BalaoMensagemUsuario key={index} mensagem={mensagem.mensagem}  />)
       } else {
-        return (<BalaoMensagem key={index} mensagem={mensagem.mensagem} usuario={mensagem.usuario} />)
+        return (<BalaoMensagem key={index} mensagem={mensagem.mensagem} usuario={mensagem.usuario}/>)
       }
     })
 
-  handleUpdate = (newMessages) => {
+  updateMensagem = (newMessages) => {
     this.setState({ mensagens: newMessages })
   }
+  
+  
+   updateBalaoMensagem = (messageBubble) => {
+    this.setState({ mensagens: messageBubble })
+  }
+
 
   render() {
     return (
@@ -56,10 +66,10 @@ export default class App extends React.Component {
       <Wrapper>
 
         <ChatBox>
-          <DisplayMensagens>
+          <DisplayMensagens updateState={this.updateBalaoMensagem}>
             {this.listaMensagem()}
           </DisplayMensagens>
-          <Mensagem array={this.state.mensagens} updateState={this.handleUpdate} />
+          <Mensagem array={this.state.mensagens} updateState={this.updateMensagem} />
         </ChatBox>
 
       </Wrapper>

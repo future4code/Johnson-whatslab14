@@ -51,15 +51,25 @@ class Mensagem extends React.Component {
                 mensagens: novoArray,
                 inputMensagem: ''
             })
+            
             this.props.updateState(this.state.mensagens)
         }
     }
+
+    handleKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            this.enviaMensagem()
+        }
+    }
+
+    
+
     render() {
         return (
-            <InputBox>
+            <InputBox tabIndex='0'>
                 <InputUser placeholder='Usuário' value={this.state.inputUsuario} onChange={this.onChangeUsuario} />
-                <InputMsg placeholder='Escreva sua Mensagem' value={this.state.inputMensagem} onChange={this.onChangeMensagem} />
-                <Botao onClick={this.enviaMensagem}>Enviar</Botao>
+                <InputMsg placeholder='Escreva sua Mensagem' value={this.state.inputMensagem} onChange={this.onChangeMensagem} onKeyDown={this.handleKeyPress}/>
+                <Botao onClick={this.enviaMensagem} >Enviar</Botao>
             </InputBox>
         )
     }
