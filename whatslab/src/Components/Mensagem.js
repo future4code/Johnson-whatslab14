@@ -9,24 +9,28 @@ const InputBox = styled.div`
     height: 4%;
     margin-top:auto;
     padding:5px ;
-    border-radius: 10px;
-    width: 100%;
     align-items: center;
     justify-content: start;
 `
 const Botao = styled.button`
-width: 25%;
+width: 10%;
+margin: 0 4% 0 auto
 `
 const InputMsg = styled.input`
-width: 35%;
+width: 60%;
+`
+
+const InputUser = styled.input`
+    width: 15%;
+    margin: 0 auto 0 3%;
 `
 class Mensagem extends React.Component {
 
     state = {
-        mensagens:this.props.array,
+        mensagens: this.props.array,
         inputUsuario: '',
         inputMensagem: '',
-    } 
+    }
 
 
     onChangeUsuario = (event) => {
@@ -37,29 +41,29 @@ class Mensagem extends React.Component {
         this.setState({ inputMensagem: event.target.value })
     }
 
-    enviaMensagem=() => {
+    enviaMensagem = () => {
         const novoArray = this.state.mensagens
-        novoArray.push(
-            {usuario:this.state.inputUsuario, mensagem:this.state.inputMensagem}
-        )
-        this.setState({
-            mensagens:novoArray,
-            inputMensagem:''
-        })
-        this.props.updateState(this.state.mensagens)
-
-
-    }
-        render() {
-            return (
-                <InputBox>
-                    <InputMsg placeholder='Usuário' value={this.state.inputUsuario} onChange={this.onChangeUsuario} />
-                    <InputMsg placeholder='Escreva sua Mensagem' value={this.state.inputMensagem} onChange={this.onChangeMensagem }/>
-                    <Botao onClick={this.enviaMensagem}>Enviar</Botao>
-                </InputBox>
+        if (this.state.inputUsuario != '' && this.state.inputMensagem != '') {
+            novoArray.push(
+                { usuario: this.state.inputUsuario, mensagem: this.state.inputMensagem }
             )
+            this.setState({
+                mensagens: novoArray,
+                inputMensagem: ''
+            })
+            this.props.updateState(this.state.mensagens)
         }
     }
+    render() {
+        return (
+            <InputBox>
+                <InputUser placeholder='Usuário' value={this.state.inputUsuario} onChange={this.onChangeUsuario} />
+                <InputMsg placeholder='Escreva sua Mensagem' value={this.state.inputMensagem} onChange={this.onChangeMensagem} />
+                <Botao onClick={this.enviaMensagem}>Enviar</Botao>
+            </InputBox>
+        )
+    }
+}
 
 
 export default Mensagem
