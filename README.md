@@ -4,7 +4,7 @@ Integrantes do grupo:Rubens Cerqueira Vieira santos e Ivanilo Alves da Silva Jun
 
 Link do Surge: impartial-trees.surge.sh
 
-Observações
+Observações: O desafio de apagar a mensagem com dois cliques não foi feito e o scroll não está focando na mensagem mais recente, ambos por falta de tempo.
 
 Prints:
 ![desktop1](https://i.imgur.com/89eOpqy.png)
