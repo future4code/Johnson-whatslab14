@@ -43,7 +43,7 @@ export default class App extends React.Component {
 
   listaMensagem = () =>
     this.state.mensagens.map((mensagem, index) => {
-      if (mensagem.usuario === "eu") {
+      if (mensagem.usuario.toLowerCase() === "eu") {
         return (<BalaoMensagemUsuario key={index} mensagem={mensagem.mensagem}  />)
       } else {
         return (<BalaoMensagem key={index} mensagem={mensagem.mensagem} usuario={mensagem.usuario}/>)
